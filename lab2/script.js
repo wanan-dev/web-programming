@@ -134,3 +134,46 @@ class Rectangle extends Square {
 
 let rect = new Rectangle(4, 6);
 rect.info();
+
+class Rhombus extends Square {
+    constructor(a, alpha) {
+        super(a);
+        this.alpha = alpha; 
+    }
+
+    square() {
+        return this.a * this.a * Math.sin(this.alpha * Math.PI / 180);
+    }
+
+    info() {
+        console.log("Rhombus:");
+        console.log("Side:", this.a);
+        console.log("Angle:", this.alpha);
+        console.log("Area:", this.square());
+    }
+}
+
+let rhomb = new Rhombus(5, 30);
+rhomb.info();
+
+
+class Parallelogram extends Rectangle {
+    constructor(a, b, alpha) {
+        super(a, b);
+        this.alpha = alpha;
+    }
+
+    square() {
+        return this.a * this.b * Math.sin(this.alpha * Math.PI / 180);
+    }
+
+    info() {
+        console.log("Parallelogram:");
+        console.log("Sides:", this.a, this.b);
+        console.log("Angle:", this.alpha);
+        console.log("Area:", this.square());
+    }
+}
+
+let para = new Parallelogram(4, 6, 30);
+para.info();
