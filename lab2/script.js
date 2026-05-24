@@ -177,3 +177,75 @@ class Parallelogram extends Rectangle {
 
 let para = new Parallelogram(4, 6, 30);
 para.info();
+
+function Triangular(a = 3, b = 4, c = 5) {
+    return { a, b, c };
+}
+
+console.log("Triangular objects:");
+console.log(Triangular());
+console.log(Triangular(6, 8, 10));
+console.log(Triangular(5, 12, 13));
+
+
+function PiMultiplier(number) {
+    return function () {
+        return Math.PI * number;
+    };
+}
+
+let piDouble = PiMultiplier(2);
+let piTwoThirds = PiMultiplier(2 / 3);
+let piHalf = PiMultiplier(1 / 2);
+
+console.log("PiMultiplier:");
+console.log(piDouble());
+console.log(piTwoThirds());
+console.log(piHalf());
+
+
+function Painter(color) {
+    return function (object) {
+        if (object.type) {
+            console.log(color + " " + object.type);
+        } else {
+            console.log("No 'type' property occurred!");
+        }
+    };
+}
+
+let PaintBlue = Painter("Blue");
+let PaintRed = Painter("Red");
+let PaintYellow = Painter("Yellow");
+
+let object1 = {
+    maxSpeed: 280,
+    type: "Sportcar",
+    color: "magenta"
+};
+
+let object2 = {
+    type: "Truck",
+    avgSpeed: 90,
+    loadCapacity: 2400
+};
+
+let object3 = {
+    maxSpeed: 180,
+    color: "purple",
+    isCar: true
+};
+
+console.log("Painter:");
+
+PaintBlue(object1);
+PaintBlue(object2);
+PaintBlue(object3);
+
+PaintRed(object1);
+PaintRed(object2);
+PaintRed(object3);
+
+PaintYellow(object1);
+PaintYellow(object2);
+PaintYellow(object3);
