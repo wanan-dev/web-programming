@@ -83,3 +83,54 @@ truck1.trip();
 truck1.AssignDriver("Олексій", false, 5);
 
 truck1.trip();
+
+// 1.2.12 Square
+class Square {
+    constructor(a) {
+        this.a = a;
+    }
+
+    static help() {
+        console.log("Square: a - сторона квадрата");
+    }
+
+    length() {
+        return this.a * 4;
+    }
+
+    square() {
+        return this.a * this.a;
+    }
+
+    info() {
+        console.log("Square:");
+        console.log("Side:", this.a);
+        console.log("Perimeter:", this.length());
+        console.log("Area:", this.square());
+    }
+}
+
+let sq = new Square(5);
+sq.info();
+
+
+class Rectangle extends Square {
+    constructor(a, b) {
+        super(a);
+        this.b = b;
+    }
+
+    square() {
+        return this.a * this.b;
+    }
+
+    info() {
+        console.log("Rectangle:");
+        console.log("Sides:", this.a, this.b);
+        console.log("Perimeter:", 2 * (this.a + this.b));
+        console.log("Area:", this.square());
+    }
+}
+
+let rect = new Rectangle(4, 6);
+rect.info();
