@@ -24,6 +24,22 @@
     <h2>Адаптивна сторінка</h2>
     <p>На великому екрані меню відображається повністю, а на меншому — через кнопку-гамбургер.</p>
 </main>
+    <div class="slider">
+    <div class="slides" id="slides">
+        <img src="https://placehold.co/800x300?text=Slide+1">
+        <img src="https://placehold.co/800x300?text=Slide+2">
+        <img src="https://placehold.co/800x300?text=Slide+3">
+    </div>
+
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+
+    <div class="dots">
+        <span onclick="goToSlide(0)"></span>
+        <span onclick="goToSlide(1)"></span>
+        <span onclick="goToSlide(2)"></span>
+    </div>
+</div>
 
 <script src="script.js"></script>
 
