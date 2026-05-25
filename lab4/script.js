@@ -8,3 +8,5 @@ SortLib.insertionSort(arr, true);
 SortLib.insertionSort(arr, false);
 SortLib.shellSort(arr, true);
 SortLib.shellSort(arr, false);
+SortLib.quickSort(arr, true);
+SortLib.quickSort(arr, false);
