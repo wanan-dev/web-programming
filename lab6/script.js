@@ -25,6 +25,11 @@ function loadLevel(index) {
 }
 
 function resetLevel() {
+    if (levels.length === 0) {
+        console.log("Levels are not loaded yet");
+        return;
+    }
+
     loadLevel(currentLevelIndex);
 }
 
