@@ -3,7 +3,7 @@ function startGame() {
     let color = document.getElementById("color").value;
 
     if (difficulty === "" || color === "") {
-        alert("Please choose difficulty and color!");
+        alert("Choose difficulty and color!");
         return;
     }
 
