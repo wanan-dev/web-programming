@@ -1,1 +1,20 @@
-
+[
+  {
+    "id": 1,
+    "name": "Phones",
+    "shortname": "phones",
+    "notes": "Smartphones and mobile devices."
+  },
+  {
+    "id": 2,
+    "name": "Laptops",
+    "shortname": "laptops",
+    "notes": "Portable computers for study and work."
+  },
+  {
+    "id": 3,
+    "name": "Accessories",
+    "shortname": "accessories",
+    "notes": "Useful devices and accessories."
+  }
+]
