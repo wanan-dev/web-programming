@@ -164,3 +164,48 @@ SortLib.shellSort = function(arr, ascending = true) {
 
     return a;
 };
+
+SortLib.quickSort = function(arr, ascending = true) {
+    let comparisons = 0;
+    let swaps = 0;
+
+    function sort(a) {
+        if (a.length <= 1) return a;
+
+        let pivot = a[Math.floor(a.length / 2)];
+        let left = [];
+        let right = [];
+        let equal = [];
+
+        for (let i = 0; i < a.length; i++) {
+
+            if (a[i] === undefined) {
+                console.log("Found undefined element");
+                continue;
+            }
+
+            comparisons++;
+
+            if (a[i] === pivot) {
+                equal.push(a[i]);
+            } else if (ascending ? a[i] < pivot : a[i] > pivot) {
+                left.push(a[i]);
+                swaps++;
+            } else {
+                right.push(a[i]);
+                swaps++;
+            }
+        }
+
+        return [...sort(left), ...equal, ...sort(right)];
+    }
+
+    let result = sort([...arr]);
+
+    console.log("Quick Sort:");
+    console.log("Result:", result);
+    console.log("Comparisons:", comparisons);
+    console.log("Swaps:", swaps);
+
+    return result;
+};
