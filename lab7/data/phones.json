@@ -1,1 +1,38 @@
-
+{
+  "categoryName": "Phones",
+  "description": "Modern smartphones for everyday use.",
+  "items": [
+    {
+      "id": 1,
+      "name": "Phone Alpha",
+      "shortname": "phone-alpha",
+      "description": "A compact smartphone with a bright screen and good battery life.",
+      "price": "$299",
+      "image": "https://placehold.co/200x200?text=Phone+Alpha"
+    },
+    {
+      "id": 2,
+      "name": "Phone Pro",
+      "shortname": "phone-pro",
+      "description": "A powerful phone with a fast processor and modern camera.",
+      "price": "$499",
+      "image": "https://placehold.co/200x200?text=Phone+Pro"
+    },
+    {
+      "id": 3,
+      "name": "Phone Max",
+      "shortname": "phone-max",
+      "description": "Large display smartphone for media, games and work.",
+      "price": "$599",
+      "image": "https://placehold.co/200x200?text=Phone+Max"
+    },
+    {
+      "id": 4,
+      "name": "Phone Mini",
+      "shortname": "phone-mini",
+      "description": "Small and simple phone for everyday communication.",
+      "price": "$199",
+      "image": "https://placehold.co/200x200?text=Phone+Mini"
+    }
+  ]
+}
