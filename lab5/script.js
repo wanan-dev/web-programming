@@ -26,7 +26,6 @@ function startGameScreen() {
     let difficulty = localStorage.getItem("difficulty");
     let color = localStorage.getItem("color");
 
-    // 🔥 РІВНІ СКЛАДНОСТІ
     if (difficulty === "easy") {
         timeForClick = 3;
         pixelSize = 60;
