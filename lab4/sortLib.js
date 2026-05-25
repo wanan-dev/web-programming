@@ -115,3 +115,52 @@ SortLib.insertionSort = function(arr, ascending = true) {
 
     return a;
 };
+
+SortLib.shellSort = function(arr, ascending = true) {
+    let a = [...arr];
+    let comparisons = 0;
+    let swaps = 0;
+
+    let gap = Math.floor(a.length / 2);
+
+    while (gap > 0) {
+
+        for (let i = gap; i < a.length; i++) {
+            let temp = a[i];
+            let j = i;
+
+            while (j >= gap) {
+
+                if (a[j - gap] === undefined || temp === undefined) {
+                    console.log("Found undefined element");
+                    break;
+                }
+
+                comparisons++;
+
+                let condition = ascending
+                    ? a[j - gap] > temp
+                    : a[j - gap] < temp;
+
+                if (condition) {
+                    a[j] = a[j - gap];
+                    swaps++;
+                    j -= gap;
+                } else {
+                    break;
+                }
+            }
+
+            a[j] = temp;
+        }
+
+        gap = Math.floor(gap / 2);
+    }
+
+    console.log("Shell Sort:");
+    console.log("Result:", a);
+    console.log("Comparisons:", comparisons);
+    console.log("Swaps:", swaps);
+
+    return a;
+};
