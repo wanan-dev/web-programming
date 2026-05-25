@@ -15,6 +15,12 @@ function showSlide(index) {
     else currentSlide = index;
 
     slides.style.transform = "translateX(-" + currentSlide * 100 + "%)";
+
+    let dots = document.querySelectorAll(".dots span");
+
+    dots.forEach(dot => dot.classList.remove("active"));
+
+    dots[currentSlide].classList.add("active");
 }
 
 function nextSlide() {
@@ -32,3 +38,5 @@ function goToSlide(index) {
 setInterval(() => {
     nextSlide();
 }, 3000);
+
+showSlide(0);
