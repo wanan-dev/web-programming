@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab 6 - Lights Out</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<h1>Лабораторна робота №6</h1>
+<h2>Lights Out</h2>
+
+<div class="controls">
+    <button onclick="loadLevel(0)">Level 1</button>
+    <button onclick="loadLevel(1)">Level 2</button>
+    <button onclick="loadLevel(2)">Level 3</button>
+</div>
+
+<p id="levelInfo">Level: 1</p>
+<p id="minSteps">Minimum steps: 7</p>
+<p id="steps">Steps: 0</p>
+
+<div id="game"></div>
+
+<button id="resetBtn" onclick="resetLevel()">Restart level</button>
+
+<script src="script.js"></script>
+
+</body>
+</html>
