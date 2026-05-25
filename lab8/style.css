@@ -119,3 +119,34 @@ main {
     border-radius: 50%;
     cursor: pointer;
 }
+
+.large-images,
+.medium-images {
+    margin: 40px auto;
+    width: 90%;
+    text-align: center;
+}
+
+.large-images img,
+.medium-images img {
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.large-images {
+    display: block;
+}
+
+.medium-images {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .large-images {
+        display: none;
+    }
+
+    .medium-images {
+        display: block;
+    }
+}
