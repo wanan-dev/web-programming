@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Hunt</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: serif;
+        }
 
+        h1 {
+            text-align: right;
+            font-size: 36px;
+            margin-right: 80px;
+        }
+
+        .menu {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        select, button {
+            font-size: 16px;
+            padding: 4px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Pixel Hunt</h1>
+
+<div class="menu">
+    <label>Choose difficulty:</label>
+    <select id="difficulty">
+        <option value="">--Please choose an option--</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+    </select>
+
+    <label>Choose color:</label>
+    <select id="color">
+        <option value="">--Please choose an option--</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+        <option value="yellow">Yellow</option>
+    </select>
+
+    <button onclick="startGame()">Start</button>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
