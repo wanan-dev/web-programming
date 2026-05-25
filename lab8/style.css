@@ -150,3 +150,18 @@ main {
         display: block;
     }
 }
+
+.dots span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: gray;
+    margin: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dots span.active {
+    background: black;
+}
