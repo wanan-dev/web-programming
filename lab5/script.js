@@ -14,58 +14,59 @@ function startGame() {
 }
 
 let score = 0;
-let timeForClick = 0;
-let gameTimer;
+let timeForClick = 1;
+let timer;
 
 if (window.location.pathname.includes("game.html")) {
-    startRealGame();
+    startGameScreen();
 }
 
-function startRealGame() {
+function startGameScreen() {
     let difficulty = localStorage.getItem("difficulty");
     let color = localStorage.getItem("color");
 
-    if (difficulty === "easy") {
-        timeForClick = 2;
-    } else if (difficulty === "medium") {
-        timeForClick = 1;
-    } else if (difficulty === "hard") {
-        timeForClick = 0.5;
-    }
+    if (difficulty === "easy") timeForClick = 2;
+    if (difficulty === "medium") timeForClick = 1;
+    if (difficulty === "hard") timeForClick = 0.5;
 
     createPixel(color);
 }
 
 function createPixel(color) {
-    let gameArea = document.getElementById("gameArea");
+    let oldPixel = document.getElementById("pixel");
 
-    let oldPixel = document.querySelector(".pixel");
     if (oldPixel) {
         oldPixel.remove();
     }
 
     document.getElementById("score").textContent = "score: " + score;
-    document.getElementById("timer").textContent = "time left for click: " + timeForClick;
+    document.getElementById("time").textContent = "time left for click: " + timeForClick;
 
     let pixel = document.createElement("div");
-    pixel.className = "pixel";
+    pixel.id = "pixel";
+
+    pixel.style.width = "30px";
+    pixel.style.height = "30px";
     pixel.style.backgroundColor = color;
+    pixel.style.position = "absolute";
+    pixel.style.cursor = "pointer";
 
     let maxX = window.innerWidth - 30;
     let maxY = window.innerHeight - 30;
 
-    pixel.style.left = Math.random() * maxX + "px";
-    pixel.style.top = Math.random() * maxY + "px";
+    pixel.style.left = Math.floor(Math.random() * maxX) + "px";
+    pixel.style.top = Math.floor(Math.random() * maxY) + "px";
 
     pixel.onclick = function () {
         score++;
-        clearTimeout(gameTimer);
+        clearTimeout(timer);
         createPixel(color);
     };
 
-    gameArea.appendChild(pixel);
+    document.body.appendChild(pixel);
 
-    gameTimer = setTimeout(function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
         alert("Game over! Your score is " + score + ", congratulations!\nPlease, reload the page to start a new game.");
         window.location.href = "index.html";
     }, timeForClick * 1000);
