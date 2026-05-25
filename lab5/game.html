@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixel Hunt Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: serif;
+        }
 
+        #gameArea {
+            width: 100vw;
+            height: 100vh;
+            background-color: #9c9c9c;
+            position: relative;
+        }
+
+        #score {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 20px;
+        }
+
+        #timer {
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            font-size: 20px;
+        }
+
+        .pixel {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="gameArea">
+    <div id="score">score: 0</div>
+    <div id="timer">time left for click: 0</div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
