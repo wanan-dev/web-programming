@@ -1,1 +1,38 @@
-
+{
+  "categoryName": "Laptops",
+  "description": "Laptops for studying, office tasks and entertainment.",
+  "items": [
+    {
+      "id": 1,
+      "name": "Laptop Basic",
+      "shortname": "laptop-basic",
+      "description": "Affordable laptop for documents, browsing and online learning.",
+      "price": "$450",
+      "image": "https://placehold.co/200x200?text=Laptop+Basic"
+    },
+    {
+      "id": 2,
+      "name": "Laptop Air",
+      "shortname": "laptop-air",
+      "description": "Lightweight laptop with long battery life.",
+      "price": "$750",
+      "image": "https://placehold.co/200x200?text=Laptop+Air"
+    },
+    {
+      "id": 3,
+      "name": "Laptop Pro",
+      "shortname": "laptop-pro",
+      "description": "Performance laptop for programming and multitasking.",
+      "price": "$1100",
+      "image": "https://placehold.co/200x200?text=Laptop+Pro"
+    },
+    {
+      "id": 4,
+      "name": "Gaming Laptop",
+      "shortname": "gaming-laptop",
+      "description": "Powerful laptop for games and heavy applications.",
+      "price": "$1400",
+      "image": "https://placehold.co/200x200?text=Gaming+Laptop"
+    }
+  ]
+}
