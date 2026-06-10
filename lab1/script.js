@@ -1,26 +1,15 @@
-console.log("Використання: triangle(value1, type1, value2, type2)");
+console.log('Use: triangle(value1, type1, value2, type2)');
+console.log('Types: "leg", "hypotenuse", "adjacent angle", "opposite angle", "angle"');
 
-function triangle(v1, t1, v2, t2) {
+function triangle(value1, type1, value2, type2) {
     let a, b, c, alpha, beta;
 
-    if (v1 <= 0 || v2 <= 0) {
-        console.log("failed");
-        return "failed";
+    function toRadians(degrees) {
+        return degrees * Math.PI / 180;
     }
 
-    t1 = t1.toLowerCase();
-    t2 = t2.toLowerCase();
-
-    function toRad(deg) {
-        return deg * Math.PI / 180;
-    }
-
-    function toDeg(rad) {
-        return rad * 180 / Math.PI;
-    }
-
-    function isAngle(type) {
-        return type === "angle" || type === "acute angle";
+    function toDegrees(radians) {
+        return radians * 180 / Math.PI;
     }
 
     function printResult() {
@@ -29,111 +18,131 @@ function triangle(v1, t1, v2, t2) {
         console.log("c =", c);
         console.log("alpha =", alpha);
         console.log("beta =", beta);
-        console.log("success");
         return "success";
     }
 
-    if (t1 === "leg" && t2 === "leg") {
-        a = v1;
-        b = v2;
-        c = Math.sqrt(a * a + b * b);
-        alpha = toDeg(Math.asin(a / c));
-        beta = 90 - alpha;
-        return printResult();
+    function instructionError() {
+        console.log("Please read the instruction again");
+        return "failed";
     }
 
+    if (value1 <= 0 || value2 <= 0) {
+        return "Zero or negative input";
+    }
+
+    if (typeof type1 !== "string" || typeof type2 !== "string") {
+        return instructionError();
+    }
+
+    type1 = type1.toLowerCase();
+    type2 = type2.toLowerCase();
+
+    // leg + hypotenuse
     if (
-        (t1 === "leg" && t2 === "hypotenuse") ||
-        (t1 === "hypotenuse" && t2 === "leg")
+        (type1 === "leg" && type2 === "hypotenuse") ||
+        (type1 === "hypotenuse" && type2 === "leg")
     ) {
-        if (t1 === "leg") {
-            a = v1;
-            c = v2;
+        if (type1 === "leg") {
+            a = value1;
+            c = value2;
         } else {
-            a = v2;
-            c = v1;
+            a = value2;
+            c = value1;
         }
 
         if (a >= c) {
-            console.log("failed");
-            return "failed";
+            return "Hypotenuse must be greater than leg";
         }
 
         b = Math.sqrt(c * c - a * a);
-        alpha = toDeg(Math.asin(a / c));
+        alpha = toDegrees(Math.asin(a / c));
         beta = 90 - alpha;
+
         return printResult();
     }
 
-    if (
-        (t1 === "hypotenuse" && isAngle(t2)) ||
-        (t2 === "hypotenuse" && isAngle(t1))
-    ) {
-        if (t1 === "hypotenuse") {
-            c = v1;
-            alpha = v2;
-        } else {
-            c = v2;
-            alpha = v1;
-        }
-
-        if (alpha <= 0 || alpha >= 90) {
-            console.log("failed");
-            return "failed";
-        }
-
+    // leg + leg
+    if (type1 === "leg" && type2 === "leg") {
+        a = value1;
+        b = value2;
+        c = Math.sqrt(a * a + b * b);
+        alpha = toDegrees(Math.asin(a / c));
         beta = 90 - alpha;
-        a = c * Math.sin(toRad(alpha));
-        b = c * Math.cos(toRad(alpha));
+
         return printResult();
     }
 
+    // hypotenuse + angle
     if (
-        (t1 === "leg" && t2 === "opposite angle") ||
-        (t2 === "leg" && t1 === "opposite angle")
+        (type1 === "hypotenuse" && type2 === "angle") ||
+        (type1 === "angle" && type2 === "hypotenuse")
     ) {
-        if (t1 === "leg") {
-            a = v1;
-            alpha = v2;
+        if (type1 === "hypotenuse") {
+            c = value1;
+            alpha = value2;
         } else {
-            a = v2;
-            alpha = v1;
+            c = value2;
+            alpha = value1;
         }
 
         if (alpha <= 0 || alpha >= 90) {
-            console.log("failed");
-            return "failed";
+            return "Not acute angle";
         }
 
         beta = 90 - alpha;
-        c = a / Math.sin(toRad(alpha));
+        a = c * Math.sin(toRadians(alpha));
+        b = c * Math.cos(toRadians(alpha));
+
+        return printResult();
+    }
+
+    // leg + opposite angle
+    if (
+        (type1 === "leg" && type2 === "opposite angle") ||
+        (type1 === "opposite angle" && type2 === "leg")
+    ) {
+        if (type1 === "leg") {
+            a = value1;
+            alpha = value2;
+        } else {
+            a = value2;
+            alpha = value1;
+        }
+
+        if (alpha <= 0 || alpha >= 90) {
+            return "Not acute angle";
+        }
+
+        beta = 90 - alpha;
+        c = a / Math.sin(toRadians(alpha));
         b = Math.sqrt(c * c - a * a);
+
         return printResult();
     }
-    
+
+    // leg + adjacent angle
     if (
-        (t1 === "leg" && t2 === "adjacent angle") ||
-        (t2 === "leg" && t1 === "adjacent angle")
+        (type1 === "leg" && type2 === "adjacent angle") ||
+        (type1 === "adjacent angle" && type2 === "leg")
     ) {
-        if (t1 === "leg") {
-            a = v1;
-            beta = v2;
+        if (type1 === "leg") {
+            a = value1;
+            beta = value2;
         } else {
-            a = v2;
-            beta = v1;
+            a = value2;
+            beta = value1;
         }
 
         if (beta <= 0 || beta >= 90) {
-            console.log("failed");
-            return "failed";
+            return "Not acute angle";
         }
 
         alpha = 90 - beta;
-        c = a / Math.cos(toRad(beta));
+        c = a / Math.cos(toRadians(beta));
         b = Math.sqrt(c * c - a * a);
+
         return printResult();
     }
 
-    console.log("failed");
-    return "failed";
+    return instructionError();
 }
