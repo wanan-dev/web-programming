@@ -16,7 +16,7 @@ const games = [
     year: 2020,
     platform: "PC, PlayStation, Xbox",
     rating: 8.7,
-    image: "https://images.unsplash.com/photo-1605902711622-cfb43c4437d7?auto=format&fit=crop&w=900&q=80",
+    image: "images/cyberpunk2077.jpg",
     description: "Футуристична RPG у місті Night City з відкритим світом і нелінійними завданнями."
   },
   {
@@ -26,7 +26,7 @@ const games = [
     year: 2018,
     platform: "PC, PlayStation",
     rating: 9.6,
-    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=900&q=80",
+    image: "images/godofwar.jpg",
     description: "Екшен-пригода про Кратоса та його сина, заснована на скандинавській міфології."
   },
   {
@@ -36,7 +36,7 @@ const games = [
     year: 2011,
     platform: "PC, PlayStation, Xbox, Nintendo Switch",
     rating: 9.4,
-    image: "https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=900&q=80",
+    image: "images/minecraft.jpg",
     description: "Пісочниця, де гравець може будувати, досліджувати світ і виживати."
   },
   {
@@ -46,7 +46,7 @@ const games = [
     year: 2023,
     platform: "PC",
     rating: 8.4,
-    image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80",
+    image: "images/cs2.jpg",
     description: "Командний шутер, де гравці змагаються у тактичних матчах."
   },
   {
@@ -56,7 +56,7 @@ const games = [
     year: 2016,
     platform: "PC, PlayStation, Xbox, Nintendo Switch",
     rating: 9.1,
-    image: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=900&q=80",
+    image: "images/civilization6.jpg",
     description: "Покрокова стратегія, у якій потрібно розвивати власну цивілізацію."
   },
   {
@@ -66,7 +66,7 @@ const games = [
     year: 2022,
     platform: "PC, PlayStation, Xbox, Nintendo Switch",
     rating: 8.2,
-    image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=900&q=80",
+    image: "images/fifa23.jpg",
     description: "Футбольний симулятор із командами, турнірами та режимом кар'єри."
   },
   {
@@ -76,7 +76,7 @@ const games = [
     year: 2018,
     platform: "PC, PlayStation, Xbox",
     rating: 9.7,
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    image: "images/rdr2.jpg",
     description: "Пригодницька гра у відкритому світі про Дикий Захід."
   }
 ];
