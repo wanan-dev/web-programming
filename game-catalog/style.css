@@ -121,13 +121,14 @@ position: relative;
 }
 
 .details-content img {
-width: 100%;
-height: auto;
-max-height: 350px;
-object-fit: contain;
-border-radius: 8px;
-margin-bottom: 15px;
-background: #111827;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background: #111827;
 }
 
 .details-content h2 {
