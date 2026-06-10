@@ -6,7 +6,7 @@ const games = [
     year: 2015,
     platform: "PC, PlayStation, Xbox, Nintendo Switch",
     rating: 9.8,
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
+    image: "images/witcher3.jpg",
     description: "Рольова гра з відкритим світом, великою кількістю квестів і глибоким сюжетом."
   },
   {
