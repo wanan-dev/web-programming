@@ -83,147 +83,80 @@ const games = [
 
 const gamesList = document.getElementById("gamesList");
 const searchInput = document.getElementById("searchInput");
-const genreFilter = document.getElementById("genreFilter");
-const platformFilter = document.getElementById("platformFilter");
-const sortSelect = document.getElementById("sortSelect");
-const resultCount = document.getElementById("resultCount");
-const showFavoritesBtn = document.getElementById("showFavoritesBtn");
-const showAllBtn = document.getElementById("showAllBtn");
+const genreSelect = document.getElementById("genreSelect");
+const countText = document.getElementById("countText");
 
-const modal = document.getElementById("modal");
-const closeModal = document.getElementById("closeModal");
-const modalImage = document.getElementById("modalImage");
-const modalTitle = document.getElementById("modalTitle");
-const modalDescription = document.getElementById("modalDescription");
-const modalGenre = document.getElementById("modalGenre");
-const modalYear = document.getElementById("modalYear");
-const modalPlatform = document.getElementById("modalPlatform");
-const modalRating = document.getElementById("modalRating");
+const detailsBlock = document.getElementById("detailsBlock");
+const closeBtn = document.getElementById("closeBtn");
+const detailsImage = document.getElementById("detailsImage");
+const detailsTitle = document.getElementById("detailsTitle");
+const detailsDescription = document.getElementById("detailsDescription");
+const detailsGenre = document.getElementById("detailsGenre");
+const detailsYear = document.getElementById("detailsYear");
+const detailsPlatform = document.getElementById("detailsPlatform");
+const detailsRating = document.getElementById("detailsRating");
 
-let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-let showOnlyFavorites = false;
-
-function renderGames(list) {
+function showGames(gamesArray) {
   gamesList.innerHTML = "";
-  resultCount.textContent = `Знайдено ігор: ${list.length}`;
+  countText.textContent = "Знайдено ігор: " + gamesArray.length;
 
-  if (list.length === 0) {
-    gamesList.innerHTML = "<p class='empty'>Ігри не знайдено.</p>";
+  if (gamesArray.length === 0) {
+    gamesList.innerHTML = "<p>Ігри не знайдено.</p>";
     return;
   }
 
-  list.forEach(game => {
-    const isFavorite = favorites.includes(game.id);
-
-    const card = document.createElement("div");
-    card.className = "game-card";
-
-    card.innerHTML = `
-      <img src="${game.image}" alt="${game.title}">
-      <div class="game-info">
-        <h3>${game.title}</h3>
-        <p><strong>Жанр:</strong> ${game.genre}</p>
-        <p><strong>Рік:</strong> ${game.year}</p>
-        <p><strong>Рейтинг:</strong> ${game.rating}</p>
-        <div class="card-buttons">
-          <button class="details-btn" onclick="openDetails(${game.id})">Детальніше</button>
-          <button class="favorite-btn" onclick="toggleFavorite(${game.id})">
-            ${isFavorite ? "В обраному" : "В обране"}
-          </button>
+  gamesArray.forEach(function(game) {
+    gamesList.innerHTML += `
+      <div class="game-card">
+        <img src="${game.image}" alt="${game.title}">
+        <div class="game-info">
+          <h3>${game.title}</h3>
+          <p><b>Жанр:</b> ${game.genre}</p>
+          <p><b>Рік:</b> ${game.year}</p>
+          <p><b>Рейтинг:</b> ${game.rating}</p>
+          <button onclick="showDetails(${game.id})">Детальніше</button>
         </div>
       </div>
     `;
-
-    gamesList.appendChild(card);
   });
 }
 
-function getFilteredGames() {
-  let filtered = [...games];
-  const searchText = searchInput.value.toLowerCase().trim();
-  const selectedGenre = genreFilter.value;
-  const selectedPlatform = platformFilter.value;
-  const sortValue = sortSelect.value;
+function filterGames() {
+  const searchText = searchInput.value.toLowerCase();
+  const selectedGenre = genreSelect.value;
 
-  if (searchText !== "") {
-    filtered = filtered.filter(game => game.title.toLowerCase().includes(searchText));
-  }
+  let filteredGames = games.filter(function(game) {
+    const titleMatches = game.title.toLowerCase().includes(searchText);
+    const genreMatches = selectedGenre === "all" || game.genre === selectedGenre;
 
-  if (selectedGenre !== "all") {
-    filtered = filtered.filter(game => game.genre === selectedGenre);
-  }
+    return titleMatches && genreMatches;
+  });
 
-  if (selectedPlatform !== "all") {
-    filtered = filtered.filter(game => game.platform.includes(selectedPlatform));
-  }
-
-  if (showOnlyFavorites) {
-    filtered = filtered.filter(game => favorites.includes(game.id));
-  }
-
-  if (sortValue === "rating-desc") {
-    filtered.sort((a, b) => b.rating - a.rating);
-  } else if (sortValue === "year-desc") {
-    filtered.sort((a, b) => b.year - a.year);
-  } else if (sortValue === "year-asc") {
-    filtered.sort((a, b) => a.year - b.year);
-  }
-
-  return filtered;
+  showGames(filteredGames);
 }
 
-function updateList() {
-  renderGames(getFilteredGames());
+function showDetails(id) {
+  const game = games.find(function(item) {
+    return item.id === id;
+  });
+
+  detailsImage.src = game.image;
+  detailsTitle.textContent = game.title;
+  detailsDescription.textContent = game.description;
+  detailsGenre.textContent = game.genre;
+  detailsYear.textContent = game.year;
+  detailsPlatform.textContent = game.platform;
+  detailsRating.textContent = game.rating;
+
+  detailsBlock.classList.remove("hidden");
 }
 
-function toggleFavorite(id) {
-  if (favorites.includes(id)) {
-    favorites = favorites.filter(gameId => gameId !== id);
-  } else {
-    favorites.push(id);
-  }
-
-  localStorage.setItem("favorites", JSON.stringify(favorites));
-  updateList();
+function closeDetails() {
+  detailsBlock.classList.add("hidden");
 }
 
-function openDetails(id) {
-  const game = games.find(item => item.id === id);
+searchInput.addEventListener("input", filterGames);
+genreSelect.addEventListener("change", filterGames);
+closeBtn.addEventListener("click", closeDetails);
 
-  modalImage.src = game.image;
-  modalTitle.textContent = game.title;
-  modalDescription.textContent = game.description;
-  modalGenre.textContent = game.genre;
-  modalYear.textContent = game.year;
-  modalPlatform.textContent = game.platform;
-  modalRating.textContent = game.rating;
-
-  modal.classList.remove("hidden");
-}
-
-closeModal.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
-
-modal.addEventListener("click", event => {
-  if (event.target === modal) {
-    modal.classList.add("hidden");
-  }
-});
-
-searchInput.addEventListener("input", updateList);
-genreFilter.addEventListener("change", updateList);
-platformFilter.addEventListener("change", updateList);
-sortSelect.addEventListener("change", updateList);
-
-showFavoritesBtn.addEventListener("click", () => {
-  showOnlyFavorites = true;
-  updateList();
-});
-
-showAllBtn.addEventListener("click", () => {
-  showOnlyFavorites = false;
-  updateList();
-});
-
-renderGames(games);
+showGames(games);
