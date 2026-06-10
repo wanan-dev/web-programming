@@ -37,7 +37,6 @@ function triangle(value1, type1, value2, type2) {
     type1 = type1.toLowerCase();
     type2 = type2.toLowerCase();
 
-    // leg + hypotenuse
     if (
         (type1 === "leg" && type2 === "hypotenuse") ||
         (type1 === "hypotenuse" && type2 === "leg")
@@ -60,8 +59,7 @@ function triangle(value1, type1, value2, type2) {
 
         return printResult();
     }
-
-    // leg + leg
+    
     if (type1 === "leg" && type2 === "leg") {
         a = value1;
         b = value2;
@@ -72,7 +70,6 @@ function triangle(value1, type1, value2, type2) {
         return printResult();
     }
 
-    // hypotenuse + angle
     if (
         (type1 === "hypotenuse" && type2 === "angle") ||
         (type1 === "angle" && type2 === "hypotenuse")
@@ -96,7 +93,6 @@ function triangle(value1, type1, value2, type2) {
         return printResult();
     }
 
-    // leg + opposite angle
     if (
         (type1 === "leg" && type2 === "opposite angle") ||
         (type1 === "opposite angle" && type2 === "leg")
@@ -120,7 +116,6 @@ function triangle(value1, type1, value2, type2) {
         return printResult();
     }
 
-    // leg + adjacent angle
     if (
         (type1 === "leg" && type2 === "adjacent angle") ||
         (type1 === "adjacent angle" && type2 === "leg")
