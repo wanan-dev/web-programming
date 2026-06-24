@@ -15,7 +15,9 @@ function startGame() {
 
 let score = 0;
 let timeForClick = 2;
+let timeLeft = 2;
 let timer;
+let countdown;
 let pixelSize = 30;
 
 if (window.location.pathname.includes("game.html")) {
@@ -48,8 +50,13 @@ function createPixel(color) {
     let oldPixel = document.getElementById("pixel");
     if (oldPixel) oldPixel.remove();
 
+    clearTimeout(timer);
+    clearInterval(countdown);
+
+    timeLeft = timeForClick;
+
     document.getElementById("score").textContent = "score: " + score;
-    document.getElementById("time").textContent = "time left for click: " + timeForClick;
+    document.getElementById("time").textContent = "time left for click: " + timeLeft;
 
     let pixel = document.createElement("div");
     pixel.id = "pixel";
@@ -68,14 +75,24 @@ function createPixel(color) {
 
     pixel.onclick = function () {
         score++;
-        clearTimeout(timer);
         createPixel(color);
     };
 
     document.body.appendChild(pixel);
 
-    clearTimeout(timer);
+    countdown = setInterval(function () {
+        timeLeft--;
+
+        document.getElementById("time").textContent =
+            "time left for click: " + timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+        }
+    }, 1000);
+
     timer = setTimeout(function () {
+        clearInterval(countdown);
         alert("Game over! Your score is " + score);
         window.location.href = "index.html";
     }, timeForClick * 1000);
