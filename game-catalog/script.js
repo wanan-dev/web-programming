@@ -20,9 +20,6 @@ const detailsYear = document.getElementById("detailsYear");
 const detailsPlatform = document.getElementById("detailsPlatform");
 const detailsRating = document.getElementById("detailsRating");
 
-const nameInput = document.getElementById("nameInput");
-const helloText = document.getElementById("helloText");
-
 const gameScore = document.getElementById("gameScore");
 const gameTime = document.getElementById("gameTime");
 const gameArea = document.getElementById("gameArea");
@@ -43,22 +40,11 @@ fetch("data/games.json")
 function showSection(name) {
   document.getElementById("catalogSection").classList.remove("active");
   document.getElementById("gameSection").classList.remove("active");
-  document.getElementById("aboutSection").classList.remove("active");
 
   document.getElementById(name + "Section").classList.add("active");
 
   if (name === "catalog") {
     filterGames();
-  }
-}
-
-function sayHello() {
-  const name = nameInput.value;
-
-  if (name === "") {
-    helloText.textContent = "Введіть ім'я.";
-  } else {
-    helloText.textContent = "Привіт, " + name + "! Приємного перегляду ігор.";
   }
 }
 
