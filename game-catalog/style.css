@@ -76,26 +76,6 @@ main {
   color: #93c5fd;
 }
 
-.hello-box {
-  background: #1f2937;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.hello-box input {
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  margin-right: 8px;
-}
-
-#helloText {
-  margin-top: 12px;
-  color: #93c5fd;
-  font-weight: 700;
-}
-
 .controls {
   display: flex;
   gap: 15px;
@@ -280,7 +260,6 @@ footer p {
   margin-bottom: 6px;
 }
 
-/* <576px */
 @media (max-width: 575px) {
   .navbar {
     flex-direction: column;
@@ -297,11 +276,6 @@ footer p {
 
   .controls {
     flex-direction: column;
-  }
-
-  .hello-box input {
-    width: 100%;
-    margin-bottom: 10px;
   }
 
   .details-content {
