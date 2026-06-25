@@ -26,7 +26,7 @@
     "year": 2022,
     "platform": "PC, PlayStation, Xbox",
     "rating": 9.6,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Elden+Ring",
+    "image": "images/eldenring.png",
     "description": "Рольова гра у темному фентезійному світі з відкритими локаціями та складними битвами."
   },
   {
@@ -46,7 +46,7 @@
     "year": 2018,
     "platform": "PC, PlayStation",
     "rating": 9.1,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Spider-Man",
+    "image": "images/spiderman.png",
     "description": "Динамічна екшен-гра про Людину-павука з відкритим містом і швидкими боями."
   },
   {
@@ -56,7 +56,7 @@
     "year": 2019,
     "platform": "PC, PlayStation, Xbox",
     "rating": 9.3,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Sekiro",
+    "image": "images/sekiro.png",
     "description": "Складна екшен-гра про самурая з акцентом на реакцію, блокування і точні атаки."
   },
   {
@@ -86,7 +86,7 @@
     "year": 2017,
     "platform": "Nintendo Switch",
     "rating": 9.7,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Zelda",
+    "image": "images/zelda.jpg",
     "description": "Пригодницька гра з дослідженням світу, головоломками та битвами."
   },
   {
@@ -106,7 +106,7 @@
     "year": 2020,
     "platform": "PC, PlayStation, Xbox",
     "rating": 9.0,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Doom+Eternal",
+    "image": "images/doometernal.jpg",
     "description": "Швидкий шутер з активними боями, великою кількістю ворогів і динамічним геймплеєм."
   },
   {
@@ -116,7 +116,7 @@
     "year": 2019,
     "platform": "PC, PlayStation, Xbox",
     "rating": 8.5,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Apex+Legends",
+    "image": "images/apexlegends.png",
     "description": "Онлайн-шутер у жанрі battle royale з героями, командною грою та спеціальними здібностями."
   },
   {
@@ -136,7 +136,7 @@
     "year": 2021,
     "platform": "PC",
     "rating": 8.6,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Age+of+Empires+IV",
+    "image": "images/ageofempires4.png",
     "description": "Стратегія в реальному часі, де потрібно будувати базу, збирати ресурси та керувати армією."
   },
   {
@@ -146,7 +146,7 @@
     "year": 2010,
     "platform": "PC",
     "rating": 9.2,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=StarCraft+II",
+    "image": "images/starcraft2.png",
     "description": "Класична стратегія в реальному часі з трьома расами та швидкими тактичними матчами."
   },
   {
@@ -166,7 +166,7 @@
     "year": 2023,
     "platform": "PC, PlayStation, Xbox",
     "rating": 8.0,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=NBA+2K24",
+    "image": "images/nba2k24.png",
     "description": "Баскетбольний симулятор з командами NBA, кар'єрним режимом і матчами."
   },
   {
@@ -176,7 +176,7 @@
     "year": 2021,
     "platform": "PC, Xbox",
     "rating": 9.0,
-    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Forza+Horizon+5",
+    "image": "images/forzahorizon5.jpg",
     "description": "Перегонова гра з відкритим світом, великою кількістю автомобілів і красивими локаціями."
   }
 ]
