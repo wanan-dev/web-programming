@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "title": "The Witcher 3",
+    "genre": "RPG",
+    "year": 2015,
+    "platform": "PC, PlayStation, Xbox, Nintendo Switch",
+    "rating": 9.8,
+    "image": "images/witcher3.jpg",
+    "description": "Рольова гра з відкритим світом, великою кількістю квестів і глибоким сюжетом."
+  },
+  {
+    "id": 2,
+    "title": "Cyberpunk 2077",
+    "genre": "RPG",
+    "year": 2020,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 8.7,
+    "image": "images/cyberpunk2077.jpg",
+    "description": "Футуристична RPG у місті Night City з відкритим світом і нелінійними завданнями."
+  },
+  {
+    "id": 3,
+    "title": "Elden Ring",
+    "genre": "RPG",
+    "year": 2022,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 9.6,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Elden+Ring",
+    "description": "Рольова гра у темному фентезійному світі з відкритими локаціями та складними битвами."
+  },
+  {
+    "id": 4,
+    "title": "God of War",
+    "genre": "Action",
+    "year": 2018,
+    "platform": "PC, PlayStation",
+    "rating": 9.6,
+    "image": "images/godofwar.jpg",
+    "description": "Екшен-пригода про Кратоса та його сина, заснована на скандинавській міфології."
+  },
+  {
+    "id": 5,
+    "title": "Spider-Man",
+    "genre": "Action",
+    "year": 2018,
+    "platform": "PC, PlayStation",
+    "rating": 9.1,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Spider-Man",
+    "description": "Динамічна екшен-гра про Людину-павука з відкритим містом і швидкими боями."
+  },
+  {
+    "id": 6,
+    "title": "Sekiro",
+    "genre": "Action",
+    "year": 2019,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 9.3,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Sekiro",
+    "description": "Складна екшен-гра про самурая з акцентом на реакцію, блокування і точні атаки."
+  },
+  {
+    "id": 7,
+    "title": "Minecraft",
+    "genre": "Adventure",
+    "year": 2011,
+    "platform": "PC, PlayStation, Xbox, Nintendo Switch",
+    "rating": 9.4,
+    "image": "images/minecraft.jpg",
+    "description": "Пісочниця, де гравець може будувати, досліджувати світ і виживати."
+  },
+  {
+    "id": 8,
+    "title": "Red Dead Redemption 2",
+    "genre": "Adventure",
+    "year": 2018,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 9.7,
+    "image": "images/rdr2.jpg",
+    "description": "Пригодницька гра у відкритому світі про Дикий Захід."
+  },
+  {
+    "id": 9,
+    "title": "Zelda",
+    "genre": "Adventure",
+    "year": 2017,
+    "platform": "Nintendo Switch",
+    "rating": 9.7,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Zelda",
+    "description": "Пригодницька гра з дослідженням світу, головоломками та битвами."
+  },
+  {
+    "id": 10,
+    "title": "Counter-Strike 2",
+    "genre": "Shooter",
+    "year": 2023,
+    "platform": "PC",
+    "rating": 8.4,
+    "image": "images/cs2.jpg",
+    "description": "Командний шутер, де гравці змагаються у тактичних матчах."
+  },
+  {
+    "id": 11,
+    "title": "Doom Eternal",
+    "genre": "Shooter",
+    "year": 2020,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 9.0,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Doom+Eternal",
+    "description": "Швидкий шутер з активними боями, великою кількістю ворогів і динамічним геймплеєм."
+  },
+  {
+    "id": 12,
+    "title": "Apex Legends",
+    "genre": "Shooter",
+    "year": 2019,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 8.5,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Apex+Legends",
+    "description": "Онлайн-шутер у жанрі battle royale з героями, командною грою та спеціальними здібностями."
+  },
+  {
+    "id": 13,
+    "title": "Civilization VI",
+    "genre": "Strategy",
+    "year": 2016,
+    "platform": "PC, PlayStation, Xbox, Nintendo Switch",
+    "rating": 9.1,
+    "image": "images/civilization6.jpg",
+    "description": "Покрокова стратегія, у якій потрібно розвивати власну цивілізацію."
+  },
+  {
+    "id": 14,
+    "title": "Age of Empires IV",
+    "genre": "Strategy",
+    "year": 2021,
+    "platform": "PC",
+    "rating": 8.6,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Age+of+Empires+IV",
+    "description": "Стратегія в реальному часі, де потрібно будувати базу, збирати ресурси та керувати армією."
+  },
+  {
+    "id": 15,
+    "title": "StarCraft II",
+    "genre": "Strategy",
+    "year": 2010,
+    "platform": "PC",
+    "rating": 9.2,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=StarCraft+II",
+    "description": "Класична стратегія в реальному часі з трьома расами та швидкими тактичними матчами."
+  },
+  {
+    "id": 16,
+    "title": "FIFA 23",
+    "genre": "Sport",
+    "year": 2022,
+    "platform": "PC, PlayStation, Xbox, Nintendo Switch",
+    "rating": 8.2,
+    "image": "images/fifa23.jpg",
+    "description": "Футбольний симулятор із командами, турнірами та режимом кар'єри."
+  },
+  {
+    "id": 17,
+    "title": "NBA 2K24",
+    "genre": "Sport",
+    "year": 2023,
+    "platform": "PC, PlayStation, Xbox",
+    "rating": 8.0,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=NBA+2K24",
+    "description": "Баскетбольний симулятор з командами NBA, кар'єрним режимом і матчами."
+  },
+  {
+    "id": 18,
+    "title": "Forza Horizon 5",
+    "genre": "Sport",
+    "year": 2021,
+    "platform": "PC, Xbox",
+    "rating": 9.0,
+    "image": "https://placehold.co/600x400/1f2937/ffffff?text=Forza+Horizon+5",
+    "description": "Перегонова гра з відкритим світом, великою кількістю автомобілів і красивими локаціями."
+  }
+]
