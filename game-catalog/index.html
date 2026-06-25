@@ -17,11 +17,10 @@
     <nav class="navbar">
       <div class="brand">🎮 Game Catalog</div>
 
-      <div class="nav-buttons">
-        <button onclick="showSection('catalog')">Каталог</button>
-        <button onclick="showSection('game')">Гра</button>
-        <button onclick="showSection('about')">Про проєкт</button>
-      </div>
+         <div class="nav-buttons">
+           <button onclick="showSection('catalog')">Каталог</button>
+          <button onclick="showSection('game')">Гра</button>
+         </div>
     </nav>
 
     <div class="header-text">
@@ -34,12 +33,6 @@
 
     <section id="catalogSection" class="section active">
       <h2>Каталог ігор</h2>
-
-      <div class="hello-box">
-        <input type="text" id="nameInput" placeholder="Введіть своє ім'я">
-        <button onclick="sayHello()">Привітатися</button>
-        <p id="helloText"></p>
-      </div>
 
       <section class="controls">
         <input type="text" id="searchInput" placeholder="Введіть назву гри">
@@ -76,26 +69,6 @@
 
       <div id="gameArea" class="game-area">
         <p class="start-text">Натисни Start game</p>
-      </div>
-    </section>
-
-    <section id="aboutSection" class="section">
-      <h2>Про проєкт</h2>
-
-      <div class="about-box">
-        <p>
-          Це командний проєкт з Web-програмування на тему каталогу комп'ютерних ігор.
-        </p>
-
-        <p>
-          Дані про ігри зберігаються у файлі JSON і завантажуються через Fetch API.
-          На сайті реалізовано пошук, фільтр за жанром, перегляд деталей гри та міні-гру.
-        </p>
-
-        <p>
-          Проєкт є односторінковим: розділи перемикаються за допомогою JavaScript
-          без перезавантаження сторінки.
-        </p>
       </div>
     </section>
 
