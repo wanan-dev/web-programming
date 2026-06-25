@@ -1,85 +1,9 @@
-const games = [
-  {
-    id: 1,
-    title: "The Witcher 3",
-    genre: "RPG",
-    year: 2015,
-    platform: "PC, PlayStation, Xbox, Nintendo Switch",
-    rating: 9.8,
-    image: "images/witcher3.jpg",
-    description: "Рольова гра з відкритим світом, великою кількістю квестів і глибоким сюжетом."
-  },
-  {
-    id: 2,
-    title: "Cyberpunk 2077",
-    genre: "RPG",
-    year: 2020,
-    platform: "PC, PlayStation, Xbox",
-    rating: 8.7,
-    image: "images/cyberpunk2077.jpg",
-    description: "Футуристична RPG у місті Night City з відкритим світом і нелінійними завданнями."
-  },
-  {
-    id: 3,
-    title: "God of War",
-    genre: "Action",
-    year: 2018,
-    platform: "PC, PlayStation",
-    rating: 9.6,
-    image: "images/godofwar.jpg",
-    description: "Екшен-пригода про Кратоса та його сина, заснована на скандинавській міфології."
-  },
-  {
-    id: 4,
-    title: "Minecraft",
-    genre: "Adventure",
-    year: 2011,
-    platform: "PC, PlayStation, Xbox, Nintendo Switch",
-    rating: 9.4,
-    image: "images/minecraft.jpg",
-    description: "Пісочниця, де гравець може будувати, досліджувати світ і виживати."
-  },
-  {
-    id: 5,
-    title: "Counter-Strike 2",
-    genre: "Shooter",
-    year: 2023,
-    platform: "PC",
-    rating: 8.4,
-    image: "images/cs2.jpg",
-    description: "Командний шутер, де гравці змагаються у тактичних матчах."
-  },
-  {
-    id: 6,
-    title: "Civilization VI",
-    genre: "Strategy",
-    year: 2016,
-    platform: "PC, PlayStation, Xbox, Nintendo Switch",
-    rating: 9.1,
-    image: "images/civilization6.jpg",
-    description: "Покрокова стратегія, у якій потрібно розвивати власну цивілізацію."
-  },
-  {
-    id: 7,
-    title: "FIFA 23",
-    genre: "Sport",
-    year: 2022,
-    platform: "PC, PlayStation, Xbox, Nintendo Switch",
-    rating: 8.2,
-    image: "images/fifa23.jpg",
-    description: "Футбольний симулятор із командами, турнірами та режимом кар'єри."
-  },
-  {
-    id: 8,
-    title: "Red Dead Redemption 2",
-    genre: "Adventure",
-    year: 2018,
-    platform: "PC, PlayStation, Xbox",
-    rating: 9.7,
-    image: "images/rdr2.jpg",
-    description: "Пригодницька гра у відкритому світі про Дикий Захід."
-  }
-];
+let games = [];
+
+let score = 0;
+let time = 20;
+let timer;
+let isGameStarted = false;
 
 const gamesList = document.getElementById("gamesList");
 const searchInput = document.getElementById("searchInput");
@@ -95,6 +19,48 @@ const detailsGenre = document.getElementById("detailsGenre");
 const detailsYear = document.getElementById("detailsYear");
 const detailsPlatform = document.getElementById("detailsPlatform");
 const detailsRating = document.getElementById("detailsRating");
+
+const nameInput = document.getElementById("nameInput");
+const helloText = document.getElementById("helloText");
+
+const gameScore = document.getElementById("gameScore");
+const gameTime = document.getElementById("gameTime");
+const gameArea = document.getElementById("gameArea");
+
+fetch("data/games.json")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    games = data;
+    showGames(games);
+  })
+  .catch(function(error) {
+    console.log("Error:", error);
+    gamesList.innerHTML = "<p>Не вдалося завантажити ігри.</p>";
+  });
+
+function showSection(name) {
+  document.getElementById("catalogSection").classList.remove("active");
+  document.getElementById("gameSection").classList.remove("active");
+  document.getElementById("aboutSection").classList.remove("active");
+
+  document.getElementById(name + "Section").classList.add("active");
+
+  if (name === "catalog") {
+    filterGames();
+  }
+}
+
+function sayHello() {
+  const name = nameInput.value;
+
+  if (name === "") {
+    helloText.textContent = "Введіть ім'я.";
+  } else {
+    helloText.textContent = "Привіт, " + name + "! Приємного перегляду ігор.";
+  }
+}
 
 function showGames(gamesArray) {
   gamesList.innerHTML = "";
@@ -125,11 +91,11 @@ function filterGames() {
   const searchText = searchInput.value.toLowerCase();
   const selectedGenre = genreSelect.value;
 
-  let filteredGames = games.filter(function(game) {
-    const titleMatches = game.title.toLowerCase().includes(searchText);
-    const genreMatches = selectedGenre === "all" || game.genre === selectedGenre;
+  const filteredGames = games.filter(function(game) {
+    const titleOk = game.title.toLowerCase().includes(searchText);
+    const genreOk = selectedGenre === "all" || game.genre === selectedGenre;
 
-    return titleMatches && genreMatches;
+    return titleOk && genreOk;
   });
 
   showGames(filteredGames);
@@ -155,8 +121,70 @@ function closeDetails() {
   detailsBlock.classList.add("hidden");
 }
 
+function startMiniGame() {
+  score = 0;
+  time = 20;
+  isGameStarted = true;
+
+  gameScore.textContent = "Score: " + score;
+  gameTime.textContent = "Time: " + time;
+
+  gameArea.innerHTML = "";
+
+  createTarget();
+
+  clearInterval(timer);
+
+  timer = setInterval(function() {
+    time--;
+    gameTime.textContent = "Time: " + time;
+
+    if (time <= 0) {
+      finishMiniGame();
+    }
+  }, 1000);
+}
+
+function createTarget() {
+  if (isGameStarted === false) {
+    return;
+  }
+
+  const oldTarget = document.getElementById("target");
+
+  if (oldTarget) {
+    oldTarget.remove();
+  }
+
+  const target = document.createElement("div");
+  target.id = "target";
+  target.className = "target";
+  target.textContent = "🎮";
+
+  const maxX = gameArea.clientWidth - 55;
+  const maxY = gameArea.clientHeight - 55;
+
+  target.style.left = Math.floor(Math.random() * maxX) + "px";
+  target.style.top = Math.floor(Math.random() * maxY) + "px";
+
+  target.onclick = function() {
+    score++;
+    gameScore.textContent = "Score: " + score;
+    createTarget();
+  };
+
+  gameArea.appendChild(target);
+}
+
+function finishMiniGame() {
+  isGameStarted = false;
+  clearInterval(timer);
+
+  gameArea.innerHTML = `
+    <p class="start-text">Game over! Your score: ${score}</p>
+  `;
+}
+
 searchInput.addEventListener("input", filterGames);
 genreSelect.addEventListener("change", filterGames);
 closeBtn.addEventListener("click", closeDetails);
-
-showGames(games);
